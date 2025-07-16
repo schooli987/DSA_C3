@@ -1,19 +1,19 @@
+# Input as a list of tuples: (Customer Name, Item Count)
 queue = [
-    {"customer": "Amit", "items": 15},
-    {"customer": "Neha", "items": 5},
-    {"customer": "John", "items": 3},
-    {"customer": "Tina", "items": 8}
+    ("Amit", 15),
+    ("Neha", 5),
+    ("John", 3),
+    ("Tina", 8)
 ]
 
-def bubble_sort_by_items(queue):
-    n = len(queue)
-    for i in range(n):
-        for j in range(0, n-i-1):
-            if queue[j]['items'] > queue[j+1]['items']:
-                queue[j], queue[j+1] = queue[j+1], queue[j]
+# Bubble Sort based on the item count
+n = len(queue)
+for i in range(n):
+    for j in range(0, n - i - 1):
+        if queue[j][1] > queue[j + 1][1]:
+            queue[j], queue[j + 1] = queue[j + 1], queue[j]
 
-bubble_sort_by_items(queue)
-
+# Display sorted queue
 print("Queue sorted by number of items:")
-for c in queue:
-    print(c)
+for customer in queue:
+    print(f"Customer: {customer[0]}, Items: {customer[1]}")
